@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ninja-directory"
+  "defaultProject": "ninja-directory",
+  "cli": {
+    "analytics": "5993c3c0-ddc4-43e9-ab51-134e1ee755e6"
+  }
 }
