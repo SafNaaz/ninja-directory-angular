@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggingService } from '../logging.service';
-import { DataService} from '../data.service'
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
@@ -13,29 +13,24 @@ export class DirectoryComponent implements OnInit {
   name: string = ''
   belt: string = ''
 
-  ninjas = [] as any
+  ninjas: Observable<any[]>;
 
   constructor(
     private logger: LoggingService,
     private db: AngularFireDatabase
-  ) {}
+  ) {
+    this.ninjas = db.list('/').valueChanges();
+  }
 
   logIt(){
     this.logger.log()
   }
 
   ngOnInit(): void {
-    this.fbGetData(this.db)
-  }
-
-  fbGetData(db: any) {
-    this.db.database.ref('/').on('child_added', (snapshot :any)=>{
-      this.ninjas.push(snapshot.val())
-    })
   }
 
   fbPostData(name: any, belt: any){
-    this.db.database.ref('/').push({name,belt});
+    this.db.list('/').push({name,belt});
     this.name = ''
     this.belt = ''
   }
