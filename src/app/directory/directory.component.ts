@@ -6,7 +6,6 @@ import { AngularFireDatabase } from '@angular/fire/database';
   selector: 'app-directory',
   templateUrl: './directory.component.html',
   styleUrls: ['./directory.component.css'],
-  providers : [DataService]
 })
 export class DirectoryComponent implements OnInit {
 
@@ -16,7 +15,6 @@ export class DirectoryComponent implements OnInit {
 
   constructor(
     private logger: LoggingService,
-    private dataService: DataService,
     private db: AngularFireDatabase
   ) {}
 
@@ -25,14 +23,12 @@ export class DirectoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.dataService.fetchData().subscribe((data) => (this.ninjas = data.body));
     this.fbGetData(this.db)
-    
   }
 
   fbGetData(db: any) {
     db.database.ref('/').on('child_added', (snapshot :any)=>{
-      console.log(snapshot.val())
+      this.ninjas.push(snapshot.val())
     })
   }
 }
