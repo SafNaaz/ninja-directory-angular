@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggingService } from '../logging.service';
 import { DataService} from '../data.service'
-
+import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
@@ -14,16 +14,25 @@ export class DirectoryComponent implements OnInit {
 
   ninjas = [] as any
 
-  constructor(private logger: LoggingService, private dataService: DataService) { }
+  constructor(
+    private logger: LoggingService,
+    private dataService: DataService,
+    private db: AngularFireDatabase
+  ) {}
 
   logIt(){
     this.logger.log()
   }
 
   ngOnInit(): void {
-    this.dataService
-        .fetchData()
-        .subscribe(data=> this.ninjas = data.body )
+    //this.dataService.fetchData().subscribe((data) => (this.ninjas = data.body));
+    this.fbGetData(this.db)
+    
   }
 
+  fbGetData(db: any) {
+    db.database.ref('/').on('child_added', (snapshot :any)=>{
+      console.log(snapshot.val())
+    })
+  }
 }
