@@ -10,6 +10,8 @@ export class DirectoryComponent implements OnInit {
 
   classes = {'blue' : false, 'red': true, 'underline' : false}
 
+  test = true
+
   ngOnInit(): void {
   }
 
