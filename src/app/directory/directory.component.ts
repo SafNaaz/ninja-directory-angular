@@ -10,8 +10,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class DirectoryComponent implements OnInit {
 
   term: any
-  name: string | undefined
-  belt: string | undefined
+  name: string = ''
+  belt: string = ''
 
   ninjas = [] as any
 
@@ -36,5 +36,7 @@ export class DirectoryComponent implements OnInit {
 
   fbPostData(name: any, belt: any){
     this.db.database.ref('/').push({name,belt});
+    this.name = ''
+    this.belt = ''
   }
 }
