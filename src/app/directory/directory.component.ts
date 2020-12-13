@@ -8,12 +8,6 @@ import { ActivatedRoute} from '@angular/router'
 })
 export class DirectoryComponent implements OnInit {
 
-  ninja: string
-
-  constructor(private route: ActivatedRoute) {
-      this.ninja = route.snapshot.params['ninja']
-   }
-
   ngOnInit(): void {
   }
 
