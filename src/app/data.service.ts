@@ -9,6 +9,6 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   fetchData(){
-    return this.http.get('assets/ninjas.json',{observe:'response'})
+    return this.http.get('https://nn-angular-basic-a213f-default-rtdb.firebaseio.com/.json',{observe:'response'})
   }
 }
