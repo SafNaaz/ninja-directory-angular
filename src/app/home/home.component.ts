@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   inputs : ["ninja"],
@@ -8,9 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @Input() ninja: any;
-
   homeTitle = "Welcome to the ninja directory!"
+
+  @Input() ninja: any;
+  @Output() onYell = new EventEmitter();
+
+  fireYellEvent(e: any){
+    this.onYell.emit(e)
+  }
+  
   
   constructor() { }
 
