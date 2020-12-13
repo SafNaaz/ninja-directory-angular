@@ -12,7 +12,7 @@ export class DirectoryComponent implements OnInit {
 
   term: any
 
-  ninjas = []
+  ninjas = [] as any
 
   constructor(private logger: LoggingService, private dataService: DataService) { }
 
@@ -21,7 +21,9 @@ export class DirectoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.fetchData().subscribe(data=> console.log(data.body))
+    this.dataService
+        .fetchData()
+        .subscribe(data=> this.ninjas = data.body )
   }
 
 }
