@@ -21,7 +21,7 @@ export class DirectoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.fetchData()
+    this.dataService.fetchData().subscribe(data=> console.log(data.body))
   }
 
 }
