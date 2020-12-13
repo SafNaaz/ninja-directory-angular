@@ -9,7 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   fetchData(){
-    return this.http.get('assets/ninjas.json').subscribe(
+    return this.http.get('assets/ninjas.json',{observe: 'response'}).subscribe(
       (data) => console.log(data)
     )
   }
