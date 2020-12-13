@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-directory',
@@ -7,6 +6,8 @@ import { ActivatedRoute} from '@angular/router'
   styleUrls: ['./directory.component.css']
 })
 export class DirectoryComponent implements OnInit {
+
+  term: any
 
   ninjas = [
     {name: "Yoshi", belt : "black"},
