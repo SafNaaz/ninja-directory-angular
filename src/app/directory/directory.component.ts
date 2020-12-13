@@ -8,6 +8,8 @@ import { ActivatedRoute} from '@angular/router'
 })
 export class DirectoryComponent implements OnInit {
 
+  classes = {'blue' : false, 'red': true, 'underline' : false}
+
   ngOnInit(): void {
   }
 
