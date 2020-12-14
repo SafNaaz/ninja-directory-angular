@@ -9,12 +9,19 @@
         <div class="single-ninja">
             <span [ngStyle]="{background: ninja.belt}">{{ninja.belt}} belt</span>
             <h3>{{ninja.name}}</h3>
+            <div>
+                <form id="edit-ninja">
+                    <input type="text" #updatetext [value]="ninja.belt" />
+                    <button (click)="fbDeleteItem(ninja.key)">Delete</button>
+                    <button (click)="fbUpdateItem(ninja.key, updatetext.value)">Update</button>
+                </form>
+            </div>
         </div>
     </li>
 </ul>
 
 <form id="add-ninja">
-    <input type="text" [(ngModel)]="name" name="name">
-    <input type="text" [(ngModel)]="belt" name="belt">
+    <input type="text" [(ngModel)]="name" name="name" placeholder="name">
+    <input type="text" [(ngModel)]="belt" name="belt" placeholder="belt">
     <button (click)="fbPostData(name, belt)">Add NInja</button>
 </form>

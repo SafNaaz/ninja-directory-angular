@@ -131,13 +131,33 @@ body{
     border: 1px solid #ddd;
     width: 240px;
   }
+
+  #edit-ninja input{
+    display: inline-block;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    width: 150px;
+  }
   
   #add-ninja button{
     background: #0288d1;
     color: #eee;
     padding: 8px 10px;
     border: 0;
-    borader-radius: 2px;
+    border-radius: 2px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    float: right;
+  }
+
+  #edit-ninja button{
+    background: #0288d1;
+    color: #eee;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 2px;
     font-size: 16px;
     letter-spacing: 1px;
     cursor: pointer;
